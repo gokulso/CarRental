@@ -28,14 +28,14 @@ public class VehicleDAOImpl implements VehicleDAO {
     private PreparedStatement ps;
     private ResultSet rs;
 
-    private final String TABLE_NAME = "vehicles";
-    private final String COL_1 = "vehicle_id";
-    private final String COL_2 = "make";
-    private final String COL_3 = "model";
-    private final String COL_4 = "auto_gearbox";
-    private final String COL_5 = "air_conditioner";
-    private final String COL_6 = "seats";
-    private final String COL_7 = "daily_price";
+    private final String TABLE_NAME = "VEHICLES";
+    private final String COL_1 = "VEHICLE_ID";
+    private final String COL_2 = "MAKE";
+    private final String COL_3 = "MODEL";
+    private final String COL_4 = "AUTO_GEARBOX";
+    private final String COL_5 = "AIR_CONDITIONER";
+    private final String COL_6 = "SEATS";
+    private final String COL_7 = "DAILY_PRICE";
 
     private final String INSERT_QUERY;
     private final String UPDATE_QUERY;
@@ -191,7 +191,7 @@ public class VehicleDAOImpl implements VehicleDAO {
         Vehicle vehicleObj = null;
         try {
             cn = DAOHelper.getConnection();
-            ps = cn.prepareStatement(SELECT_QUERY + " WHERE vehicle_id=?");
+            ps = cn.prepareStatement(SELECT_QUERY + " WHERE VEHICLE_ID=?");
             ps.setInt(1, vehicleIDParam);
             rs = ps.executeQuery();
             rs.next();

@@ -36,23 +36,23 @@ public class OrderDAOImpl implements OrderDAO {
     private PreparedStatement ps = null;
     private ResultSet rs = null;
 
-    private final String TABLE_NAME = "orders";
-    private final String COL_1 = "order_id";
-    private final String COL_2 = "vehicle_id";
-    private final String COL_3 = "user_id";
-    private final String COL_4 = "passport_id";
-    private final String COL_5 = "pick_up_date";
-    private final String COL_6 = "drop_off_date";
-    private final String COL_7 = "rent_cost";
-    private final String COL_8 = "processed";
-    private final String COL_9 = "rejected";
-    private final String COL_10 = "reject_desc";
-    private final String COL_11 = "picked";
-    private final String COL_12 = "returned";
-    private final String COL_13 = "damaged";
-    private final String COL_14 = "damage_desc";
-    private final String COL_15 = "damage_cost";
-    private final String COL_16 = "paid";
+    private final String TABLE_NAME = "ORDERS";
+    private final String COL_1 = "ORDER_ID";
+    private final String COL_2 = "VEHICLE_ID";
+    private final String COL_3 = "USER_ID";
+    private final String COL_4 = "PASSPORT_ID";
+    private final String COL_5 = "PICK_UP_DATE";
+    private final String COL_6 = "DROP_OFF_DATE";
+    private final String COL_7 = "RENT_COST";
+    private final String COL_8 = "PROCESSED";
+    private final String COL_9 = "REJECTED";
+    private final String COL_10 = "REJECT_DESC";
+    private final String COL_11 = "PICKED";
+    private final String COL_12 = "RETURNED";
+    private final String COL_13 = "DAMAGED";
+    private final String COL_14 = "DAMAGE_DESC";
+    private final String COL_15 = "DAMAGE_COST";
+    private final String COL_16 = "PAID";
 
     private final String INSERT_QUERY;
     private final String UPDATE_QUERY;
@@ -251,7 +251,7 @@ public class OrderDAOImpl implements OrderDAO {
         Order orderObj = null;
         try {
             cn = DAOHelper.getConnection();
-            ps = cn.prepareStatement(SELECT_QUERY + " WHERE order_id=?");
+            ps = cn.prepareStatement(SELECT_QUERY + " WHERE ORDER_ID=?");
             ps.setInt(1, orderIDParam);
             rs = ps.executeQuery();
             rs.next();

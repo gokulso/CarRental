@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context path="/CarRental">
+    <Resource name="jdbc/appname"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxActive="50" 
+              maxIdle="10"
+              username="sa" 
+              password="test_1234"
+              driverClassName="net.sourceforge.jtds.jdbc.Driver"
+              validationQuery="select 1"
+              url="jdbc:jtds:sqlserver://localhost:1433/UserDetails"/>
+  
+</Context>
+
+

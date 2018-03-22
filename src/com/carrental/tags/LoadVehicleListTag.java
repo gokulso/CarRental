@@ -23,6 +23,11 @@ import javax.servlet.jsp.tagext.TagSupport;
 public class LoadVehicleListTag extends TagSupport {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Loads vehicle list from database to JSP.
      *
      * @return SKIP_BODY

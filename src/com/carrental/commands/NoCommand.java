@@ -26,8 +26,7 @@ public class NoCommand implements Command {
     public String execute(HttpServletRequest req, HttpServletResponse res,
             HttpSession session) throws ServletException, IOException {
         Lgr.LOGGER.info("Command called: " + this.getClass().getSimpleName());
-        String page = ConfigManager.getInstance()
-                .getProperty(ConfigManager.INDEX_PAGE_PATH);
-        return page;
+        return ConfigManager.getInstance().getProperty(ConfigManager.INDEX_PAGE_PATH);
+         
     }
 }

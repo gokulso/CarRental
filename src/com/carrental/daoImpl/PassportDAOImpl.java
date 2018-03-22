@@ -28,16 +28,16 @@ public class PassportDAOImpl implements PassportDAO {
     private PreparedStatement ps = null;
     private ResultSet rs = null;
 
-    private final String TABLE_NAME = "passports";
-    private final String COL_1 = "passport_id";
-    private final String COL_2 = "last_name";
-    private final String COL_3 = "first_name";
-    private final String COL_4 = "patronymic";
-    private final String COL_5 = "birthday";
-    private final String COL_6 = "p_series";
-    private final String COL_7 = "p_number";
-    private final String COL_8 = "who_issued";
-    private final String COL_9 = "when_issued";
+    private final String TABLE_NAME = "PASSPORTS";
+    private final String COL_1 = "PASSPORT_ID";
+    private final String COL_2 = "LAST_NAME";
+    private final String COL_3 = "FIRST_NAME";
+    private final String COL_4 = "PATRONYMIC";
+    private final String COL_5 = "BIRTHDAY";
+    private final String COL_6 = "P_SERIES";
+    private final String COL_7 = "P_NUMBER";
+    private final String COL_8 = "WHO_ISSUED";
+    private final String COL_9 = "WHEN_ISSUED";
 
     private final String INSERT_QUERY;
     private final String UPDATE_QUERY;
@@ -195,7 +195,7 @@ public class PassportDAOImpl implements PassportDAO {
         Passport passportObj = null;
         try {
             cn = DAOHelper.getConnection();
-            ps = cn.prepareStatement(SELECT_QUERY + " WHERE passport_id=?");
+            ps = cn.prepareStatement(SELECT_QUERY + " WHERE PASSPORT_ID=?");
             ps.setInt(1, passportIDParam);
             rs = ps.executeQuery();
             rs.next();

@@ -15,6 +15,6 @@ import org.apache.log4j.Logger;
  */
 public class Lgr {
 
-    public static final Logger LOGGER = Logger.getLogger(Lgr.class);
+    public static final Logger LOGGER = Logger.getLogger(Lgr.class.getName());
 
 }

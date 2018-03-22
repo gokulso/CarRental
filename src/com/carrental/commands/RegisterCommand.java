@@ -1,7 +1,6 @@
 /*
- * RegisterCommand.java 2014/04/20
+ * RegisterCommand.java 2019/03/19
  *
- * Copyright (C) 2014 Florin.
  *
  */
 package com.carrental.commands;
@@ -9,6 +8,7 @@ package com.carrental.commands;
 import com.carrental.util.Lgr;
 import com.carrental.config.ConfigManager;
 import com.carrental.dao.UserDAO;
+import com.carrental.daoImpl.DAOHelper;
 import com.carrental.daofactory.DAOFactory;
 import com.carrental.entities.User;
 import java.io.IOException;

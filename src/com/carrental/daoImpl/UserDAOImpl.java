@@ -27,11 +27,11 @@ public class UserDAOImpl implements UserDAO {
     private PreparedStatement ps = null;
     private ResultSet rs = null;
 
-    private final String TABLE_NAME = "users";
-    private final String COL_1 = "user_id";
-    private final String COL_2 = "usertype_id";
-    private final String COL_3 = "login";
-    private final String COL_4 = "password";
+    private final String TABLE_NAME = "USERS";
+    private final String COL_1 = "USER_ID";
+    private final String COL_2 = "USERTYPE_ID";
+    private final String COL_3 = "LOGIN";
+    private final String COL_4 = "PASSWORD";
 
     private final String INSERT_QUERY;
     private final String UPDATE_QUERY;
@@ -159,7 +159,7 @@ public class UserDAOImpl implements UserDAO {
         User userObj = null;
         try {
             cn = DAOHelper.getConnection();
-            ps = cn.prepareStatement(SELECT_QUERY + " WHERE login=?");
+            ps = cn.prepareStatement(SELECT_QUERY + " WHERE LOGIN=?");
             ps.setString(1, loginParam);
             rs = ps.executeQuery();
             rs.next();
@@ -182,7 +182,7 @@ public class UserDAOImpl implements UserDAO {
         User userObj = null;
         try {
             cn = DAOHelper.getConnection();
-            ps = cn.prepareStatement(SELECT_QUERY + " WHERE user_id=?");
+            ps = cn.prepareStatement(SELECT_QUERY + " WHERE USER_ID=?");
             ps.setInt(1, userIDParam);
             rs = ps.executeQuery();
             rs.next();

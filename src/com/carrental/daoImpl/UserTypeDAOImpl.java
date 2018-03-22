@@ -27,9 +27,9 @@ public class UserTypeDAOImpl implements UserTypeDAO {
     private PreparedStatement ps = null;
     private ResultSet rs = null;
 
-    private final String TABLE_NAME = "usertypes";
-    private final String COL_1 = "usertype_id";
-    private final String COL_2 = "usertype";
+    private final String TABLE_NAME = "USERTYPES";
+    private final String COL_1 = "USERTYPE_ID";
+    private final String COL_2 = "USERTYPE";
 
     private final String INSERT_QUERY;
     private final String UPDATE_QUERY;

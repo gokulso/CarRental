@@ -1,7 +1,5 @@
 <%-- 
     Document   : index.jsp
-    Created on : 26.04.2014, 22:37:41
-    Author     : Florin
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
@@ -15,7 +13,7 @@
                                not empty language ? language :
                                pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="${language}" />
-<fmt:setBundle basename="com.bionic_university.carrental.i18n.text" />
+<fmt:setBundle basename="text" />
 
 <!DOCTYPE html>
 <html>
