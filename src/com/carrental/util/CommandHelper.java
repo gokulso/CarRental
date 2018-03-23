@@ -1,7 +1,7 @@
 /*
- * CommandHelper.java 2014/04/21
+ * CommandHelper.java 
  *
- * Copyright (C) 2014 Florin.
+ * 
  *
  */
 package com.carrental.util;
