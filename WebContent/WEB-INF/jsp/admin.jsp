@@ -1,7 +1,6 @@
 <%-- 
     Document   : admin
-    Created on : 27.04.2014, 11:26:48
-    Author     : Florin
+
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 

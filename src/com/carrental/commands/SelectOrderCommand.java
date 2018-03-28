@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  * Class that represents command to select the specified order for further
  * processing.
  *
- * @author Florin
+ * 
  */
 public class SelectOrderCommand implements Command {
 

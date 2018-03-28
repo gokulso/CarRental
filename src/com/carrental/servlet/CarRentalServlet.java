@@ -1,7 +1,7 @@
 /*
- * CarRentalServlet.java 2014/04/10
+ * CarRentalServlet.java
  *
- * Copyright (C) 2014 Florin.
+ * 
  *
  */
 package com.carrental.servlet;
