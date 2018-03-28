@@ -134,6 +134,16 @@
                                         </a>
                                     </form>
                                 </li>
+                                  <li>
+                                    <form name="orderHistory" method="post" action="CarRentalServlet">
+                                        <input type="hidden" name="command" value="orderHistory"/>
+                                        <a href="" onclick="parentNode.submit();
+                                                return false;">
+                                            <i class="fa fa-shopping-cart fa-fw"></i>
+                                            <fmt:message key="index.button.History" />
+                                        </a>
+                                    </form>
+                                </li>
                                 <c:if test="${sessionScope.userTypeID == 1}">
                                     <li>
                                         <form name="adminZoneButton" method="post" action="CarRentalServlet">

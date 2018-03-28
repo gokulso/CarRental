@@ -19,6 +19,7 @@ import com.carrental.commands.LogInCommand;
 import com.carrental.commands.LogOutCommand;
 import com.carrental.commands.MakeOrderButtonCommand;
 import com.carrental.commands.NoCommand;
+import com.carrental.commands.OrderHistoryCommand;
 import com.carrental.commands.RegisterCommand;
 import com.carrental.commands.RejectOrderCommand;
 import com.carrental.commands.ResetOrderCommand;
@@ -56,6 +57,7 @@ public class CommandFactory {
 
         commands.put("confirmOrder", new ConfirmOrderCommand());
         commands.put("rejectOrder", new RejectOrderCommand());
+        commands.put("orderHistory", new OrderHistoryCommand());
         commands.put("giveVehicle", new GiveVehicleCommand());
         commands.put("returnVehicle", new ReturnVehicleCommand());
         commands.put("returnDamagedVehicle", new ReturnDamagedVehicleCommand());

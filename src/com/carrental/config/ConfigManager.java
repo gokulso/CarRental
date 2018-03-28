@@ -34,6 +34,7 @@ public class ConfigManager {
     public static final String ERROR_PAGE_PATH = "ERROR_PAGE_PATH";
     public static final String INFO_ORDER_PAGE_PATH = "INFO_ORDER_PAGE_PATH";
     public static final String INFO_REG_PAGE_PATH = "INFO_REG_PAGE_PATH";
+    public static final String ORDER_HISTORY_PATH = "ORDER_HISTORY_PATH";
 
     public static synchronized ConfigManager getInstance() {
         if (instance == null) {
