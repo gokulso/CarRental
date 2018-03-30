@@ -56,14 +56,75 @@
             
      <body>
      
+    <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header"><fmt:message key="index.orderhistorypaneltitle" /></h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <fmt:message key="index.ordertable.title" />
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th><fmt:message key="table.vehicle.make" /></th>
+                                                <th><fmt:message key="table.vehicle.model" /></th>		
+                                                <th><fmt:message key="table.vehicle.gearbox" /></th>
+                                                <th><fmt:message key="table.vehicle.airConditioner" /></th>
+                                                <th><fmt:message key="table.vehicle.seats" /></th>
+                                                <th><fmt:message key="table.vehicle.price" /></th>
+                                                <th><fmt:message key="table.vehicle.totalprice" /></th>
+                                                <th><fmt:message key="table.vehicle.orderDate" /></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${vehicleList}" var="vehicle">
+                                                <tr>
+                                                    <td><c:out value="${vehicle.make}" /></td>
+                                                    <td><c:out value="${vehicle.model}" /></td>
+                                                    <td>
+                                                        <c:if test="${vehicle.autoGearbox}">
+                                                            <input type="checkbox" name="autoGearbox" disabled="" checked="" />
+                                                        </c:if>
+                                                        <c:if test="${not vehicle.autoGearbox}">
+                                                            <input type="checkbox" name="autoGearbox" disabled="" />
+                                                        </c:if>
+                                                    </td>
+                                                    <td>
+                                                        <c:if test="${vehicle.airConditioner}">
+                                                            <input type="checkbox" name="airConditioner" disabled="" checked="" />
+                                                        </c:if>
+                                                        <c:if test="${not vehicle.airConditioner}">
+                                                            <input type="checkbox" name="airConditioner" disabled="" />
+                                                        </c:if>
+                                                    </td>
+                                                    <td><c:out value="${vehicle.seats}" /></td>
+                                                    <td><c:out value="${vehicle.dailyPrice}" /></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+            </div>
+            <!-- /#page-wrapper -->
      
-     
-     
-     
-     
-     
-     
-     
+  
      
      
      
