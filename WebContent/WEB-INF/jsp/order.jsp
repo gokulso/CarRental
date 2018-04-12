@@ -25,6 +25,39 @@
 
         <title><fmt:message key="index.title" /></title>
 
+      <script type="text/javascript">
+        
+        window.onload = function() {
+        	var today = new Date();
+        	var dd = prependZero(''+today.getDate());
+    		var mm = prependZero(''+(today.getMonth() + 1));
+			var yyyy = today.getFullYear();
+			var h =prependZero(''+today.getHours());
+	        var m = prependZero(''+today.getMinutes());
+			var today1 = yyyy + '-' + mm + '-' + dd+'T'+h+':'+m;
+			document.getElementById("pickdatefield").min = today1; 
+			document.getElementById("dropdatefield").min = today1; 
+			passportDateValidation()
+        	};
+        	
+        	function passportDateValidation(){
+        		var date = new Date();
+            	var dd = prependZero(''+date.getDate());
+        		var mm = prependZero(''+(date.getMonth() + 1))
+        		var yyyy = date.getFullYear();
+        		var today = yyyy + '-' + mm + '-' + dd
+        		document.getElementById("licencedatefield").max = today;	
+        	}
+
+			function prependZero(val1) {
+				//alert(val1+':'+val1.length);
+				if (val1.length < 2) {
+					return '0' + val1;
+				} else {
+					return val1;
+				}
+			}
+		</script>
         <link href="styles/carrentalstyles.css" rel="stylesheet"/>
 
         <!-- Core CSS - Include with every page -->
@@ -37,6 +70,8 @@
 
         <!-- SB Admin CSS - Include with every page -->
         <link href="css/sb-admin.css" rel="stylesheet"/>
+        
+      
 
     </head>
 
@@ -174,7 +209,7 @@
                                     <div class="col-lg-6">
                                         <form role="form" name="calculateCost" method="post" action="CarRentalServlet">
                                             <input type="hidden" name="command" value="calculateCost"/>
-                                            <h2><fmt:message key="order.label.selectVehicle" /></h2>
+                                            <h3><fmt:message key="order.label.selectVehicle" /></h3>
                                             <div class="form-group">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered table-hover">
@@ -247,16 +282,16 @@
                                                 </div>
                                                 <!-- /.table-responsive -->
                                             </div>
-                                            <h2><fmt:message key="order.label.chooseDates" /></h2>             
+                                            <h3><fmt:message key="order.label.chooseDates" /></h3>             
                                             <div class="form-group">
                                                 <label><fmt:message key="order.label.pickUp" /></label>
-                                                <input class="form-control" type="datetime-local" name="pickUpDate" min="1970-01-01T00:01" max="2038-01-19T03:14" value="${pickUpDate}" required="" />
+                                                <input class="form-control" id = "pickdatefield" type="datetime-local" name="pickUpDate" value="${pickUpDate}" required="" />
                                             </div>
                                             <div class="form-group">
                                                 <label><fmt:message key="order.label.dropOff" /></label>
-                                                <input class="form-control" type="datetime-local" name="dropOffDate" min="1970-01-01T00:01" max="2038-01-19T03:14" value="${dropOffDate}" required="" />
+                                                <input class="form-control" id = "dropdatefield" type="datetime-local" name="dropOffDate" value="${dropOffDate}" required="" />
                                             </div>
-                                            <h2><fmt:message key="order.label.calculateCost" /></h2>
+                                            <h3><fmt:message key="order.label.calculateCost" /></h3>
                                             <div class="form-group input-group">
                                                 <span class="input-group-addon"><i class="fa fa-money"></i>
                                                 </span>
@@ -267,7 +302,7 @@
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
                                     <div class="col-lg-6">
-                                        <h2><fmt:message key="order.label.fillPassport" /></h2>
+                                        <h3><fmt:message key="order.label.drivingLicence" /></h3>
                                         <form role="form" name="orderForm" method="POST" action="CarRentalServlet">
                                             <input type="hidden" name="command" value="createOrder"/>
                                             <input type="hidden" name="vehicleID" value="${vehicleID}"/>
@@ -287,26 +322,34 @@
                                                 <fmt:message key="order.label.patronymic" var="patronymic" />
                                                 <input type="text" class="form-control" name="patronymic" placeholder="${patronymic}">
                                             </div>
+                                            <div class="form-group">
+                                                <fmt:message key="order.label.phoneNumber" var="phoneNumber" />
+                                                <input type="text" class="form-control" name="phoneNumber" placeholder="${phoneNumber}">
+                                            </div>
                                             <label><fmt:message key="order.label.birthday" /></label>
                                             <div class="form-group">
-                                                <input type="date" class="form-control" name="birthday" min="1000-01-01" max="9999-12-31" required="">
+                                                <input type="date" class="form-control" name="birthday" min="1000-01-01" max="1999-12-31" required="">
                                             </div>
-                                            <label><fmt:message key="order.label.pData" /></label>
+                                            <label><fmt:message key="order.label.licence" /></label>
                                             <div class="form-group">
-                                                <fmt:message key="order.label.pSeries" var="pSeries" />
-                                                <input type="text" class="form-control" name="pSeries" maxlength="2" placeholder="${pSeries}" required="">
+                                                <fmt:message key="order.label.lSeries" var="lSeries" />
+                                                <input type="text" class="form-control" name="lSeries" maxlength="4" placeholder="${lSeries}" required="">
                                             </div>
                                             <div class="form-group">
-                                                <fmt:message key="order.label.pNumber" var="pNumber" />
-                                                <input type="text" class="form-control" name="pNumber" maxlength="6" placeholder="${pNumber}" required="">
+                                                <fmt:message key="order.label.lNumber" var="lNumber" />
+                                                <input type="text" class="form-control" name="lNumber" maxlength="6" placeholder="${lNumber}" required="">
                                             </div>
                                             <div class="form-group">
                                                 <fmt:message key="order.label.whoIssued" var="whoIssued" />
-                                                <textarea class="form-control" rows="2" name="whoIssued" placeholder="${whoIssued}" required="" ></textarea>
+                                                <input class="form-control" name="whoIssued" placeholder="${whoIssued}" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <fmt:message key="order.label.address" var="address" />
+                                                <textarea class="form-control" rows="2" name="address" placeholder="${address}" required="" ></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <p class="help-block"><fmt:message key="order.label.whenIssued" /></p>
-                                                <input type="date" class="form-control" name="whenIssued" min="1000-01-01" max="9999-12-31" required="">
+                                                <input type="date" id = "licencedatefield" class="form-control" name="whenIssued" min="1000-01-01" required="">
                                             </div>
                                             <button type="submit" class="btn btn-primary"><fmt:message key="order.button.createOrder" /></button>
                                         </form>

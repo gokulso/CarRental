@@ -24,7 +24,7 @@ public class Order implements Serializable {
     private int orderID;
     private Vehicle vehicle;
     private User user;
-    private Passport passport;
+    private Licence licence;
     private Timestamp pickUpDate;
     private Timestamp dropOffDate;
     private BigDecimal rentCost;
@@ -41,7 +41,7 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(int orderID, Vehicle vehicle, User user, Passport passport,
+    public Order(int orderID, Vehicle vehicle, User user, Licence licence,
             Timestamp pickUpDate, Timestamp dropOffDate, BigDecimal rentCost,
             boolean processed, boolean rejected, String rejectDesc,
             boolean picked, boolean returned, boolean damaged,
@@ -49,7 +49,7 @@ public class Order implements Serializable {
         this.orderID = orderID;
         this.vehicle = vehicle;
         this.user = user;
-        this.passport = passport;
+        this.licence = licence;
         this.pickUpDate = pickUpDate;
         this.dropOffDate = dropOffDate;
         this.rentCost = rentCost;
@@ -88,12 +88,12 @@ public class Order implements Serializable {
         this.user = user;
     }
 
-    public Passport getPassport() {
-        return passport;
+    public Licence getLicence() {
+        return licence;
     }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
+    public void setLicence(Licence licence) {
+        this.licence = licence;
     }
 
     public Timestamp getPickUpDate() {
@@ -198,7 +198,7 @@ public class Order implements Serializable {
                 .append("orderID", orderID)
                 .append("vehicle", vehicle)
                 .append("user", user)
-                .append("passport", passport)
+                .append("passport", licence)
                 .append("pickUpDate", pickUpDate)
                 .append("dropOffDate", dropOffDate)
                 .append("rentCost", rentCost)
@@ -220,7 +220,7 @@ public class Order implements Serializable {
                 .append(orderID)
                 .append(vehicle)
                 .append(user)
-                .append(passport)
+                .append(licence)
                 .append(pickUpDate)
                 .append(dropOffDate)
                 .append(rentCost)
@@ -252,7 +252,7 @@ public class Order implements Serializable {
                 .append(orderID, other.orderID)
                 .append(vehicle, other.vehicle)
                 .append(user, other.user)
-                .append(passport, other.passport)
+                .append(licence, other.licence)
                 .append(pickUpDate, other.pickUpDate)
                 .append(dropOffDate, other.dropOffDate)
                 .append(rentCost, other.rentCost)

@@ -12,12 +12,12 @@ import com.carrental.config.ConfigManager;
 import com.carrental.daoImpl.DAOHelper;
 import com.carrental.daofactory.DAOFactory;
 import com.carrental.entities.Order;
-import com.carrental.entities.Passport;
+import com.carrental.entities.Licence;
 import com.carrental.entities.User;
 import com.carrental.entities.Vehicle;
 import com.carrental.exceptions.SessionTimeoutException;
 import com.carrental.dao.OrderDAO;
-import com.carrental.dao.PassportDAO;
+import com.carrental.dao.LicenceDAO;
 import com.carrental.dao.UserDAO;
 import com.carrental.dao.VehicleDAO;
 import java.io.IOException;
@@ -45,26 +45,28 @@ public class CreateOrderCommand implements Command {
             CommandHelper.validateSession(session);
 
             //get DAOs
-            PassportDAO passportDAO = DAOFactory.getPassportDAO();
+            LicenceDAO licenceDAO = DAOFactory.getLicenceDAO();
             OrderDAO orderDAO = DAOFactory.getOrderDAO();
             VehicleDAO vehicleDAO = DAOFactory.getVehicleDAO();
             UserDAO userDAO = DAOFactory.getUserDAO();
 
-            //create and insert new pasport
-            Passport passport = new Passport();
-            passport.setLastName(req.getParameter(REQ_PARAM_LAST_NAME));
-            passport.setFirstName(req.getParameter(REQ_PARAM_FIRST_NAME));
-            passport.setPatronymic(req.getParameter(REQ_PARAM_PATRONYMIC));
-            passport.setBirthday(Date.valueOf(req.getParameter(REQ_PARAM_BIRTHDAY)));
-            passport.setpSeries(req.getParameter(REQ_PARAM_P_SERIES));
-            passport.setpNumber(req.getParameter(REQ_PARAM_P_NUMBER));
-            passport.setWhoIssued(req.getParameter(REQ_PARAM_WHO_ISSUED));
-            passport.setWhenIssued(Date.valueOf(req.getParameter(REQ_PARAM_WHEN_ISSUED)));
-            int passportID = passportDAO.insert(passport);
-            if (passportID == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            //create and insert new licence
+            Licence licence = new Licence();
+            licence.setLastName(req.getParameter(REQ_PARAM_LAST_NAME));
+            licence.setFirstName(req.getParameter(REQ_PARAM_FIRST_NAME));
+            licence.setPatronymic(req.getParameter(REQ_PARAM_PATRONYMIC));
+            licence.setPhoneNmber(req.getParameter(REQ_PARAM_PHONE_NUMBER));
+            licence.setBirthday(Date.valueOf(req.getParameter(REQ_PARAM_BIRTHDAY)));
+            licence.setlSeries(req.getParameter(REQ_PARAM_P_SERIES));
+            licence.setlNumber(req.getParameter(REQ_PARAM_P_NUMBER));
+            licence.setWhoIssued(req.getParameter(REQ_PARAM_WHO_ISSUED));
+            licence.setAddress(req.getParameter(REQ_PARAM_ADDRESS));
+            licence.setWhenIssued(Date.valueOf(req.getParameter(REQ_PARAM_WHEN_ISSUED)));
+            int licenceID = licenceDAO.insert(licence);
+            if (licenceID == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Passport entry in DB was not created");
             } else {
-                passport.setPassportID(passportID);
+                licence.setLicenceID(licenceID);
             }
 
             //create and insert new order
@@ -75,7 +77,7 @@ public class CreateOrderCommand implements Command {
             int userID = (Integer) session.getAttribute(SESS_PARAM_USER_ID);
             User user = userDAO.findByID(userID);
             order.setUser(user);
-            order.setPassport(passport);
+            order.setLicence(licence);
             order.setPickUpDate(Timestamp.valueOf(CalculateCostCommand
                     .convertDateFormat(req
                             .getParameter(CalculateCostCommand.REQ_PARAM_PICK_UP_DATE))));

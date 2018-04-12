@@ -28,8 +28,8 @@ public class DAOFactory {
         return new VehicleDAOImpl();
     }
 
-    public static PassportDAO getPassportDAO() {
-        return new PassportDAOImpl();
+    public static LicenceDAO getLicenceDAO() {
+        return new LicenceDAOImpl();
     }
 
     public static OrderDAO getOrderDAO() {

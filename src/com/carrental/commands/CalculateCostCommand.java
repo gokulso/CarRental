@@ -53,7 +53,6 @@ public class CalculateCostCommand implements Command {
             BigDecimal dailyPrice = vehicleDAO.findDailyPriceByVehicleID(vehicleID);
             BigDecimal rentCost = calcRentCost(dailyPrice, rentInterval);
             req.setAttribute(REQ_PARAM_RENT_COST, rentCost);
-
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ORDER_PAGE_PATH);
         } catch (SessionTimeoutException e) {
@@ -77,8 +76,7 @@ public class CalculateCostCommand implements Command {
             firstDateTime = new DateTime(ts2.getTime());
             secondDateTime = new DateTime(ts1.getTime());
         }
-        int dayDifference = Days.daysBetween(firstDateTime.withTimeAtStartOfDay(),
-                secondDateTime.withTimeAtStartOfDay()).getDays();
+        int dayDifference = Days.daysBetween(firstDateTime.withTimeAtStartOfDay(),secondDateTime.withTimeAtStartOfDay()).getDays();
         return dayDifference;
     }
 

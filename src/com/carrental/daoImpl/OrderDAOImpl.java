@@ -9,11 +9,11 @@ package com.carrental.daoImpl;
 import com.carrental.daofactory.DAOFactory;
 import com.carrental.util.Lgr;
 import com.carrental.entities.Order;
-import com.carrental.entities.Passport;
+import com.carrental.entities.Licence;
 import com.carrental.entities.User;
 import com.carrental.entities.Vehicle;
 import com.carrental.dao.OrderDAO;
-import com.carrental.dao.PassportDAO;
+import com.carrental.dao.LicenceDAO;
 import com.carrental.dao.UserDAO;
 import com.carrental.dao.VehicleDAO;
 import java.math.BigDecimal;
@@ -61,7 +61,7 @@ public class OrderDAOImpl implements OrderDAO {
 
     private final VehicleDAO VEHICLE_DAO = DAOFactory.getVehicleDAO();
     private final UserDAO USER_DAO = DAOFactory.getUserDAO();
-    private final PassportDAO PASSPORT_DAO = DAOFactory.getPassportDAO();
+    private final LicenceDAO LICENCE_DAO = DAOFactory.getLicenceDAO();
 
     {
         INSERT_QUERY = new StringBuffer()
@@ -131,7 +131,7 @@ public class OrderDAOImpl implements OrderDAO {
             ps = cn.prepareStatement(INSERT_QUERY);
             ps.setInt(1, order.getVehicle().getVehicleID());
             ps.setInt(2, order.getUser().getUserID());
-            ps.setInt(3, order.getPassport().getPassportID());
+            ps.setInt(3, order.getLicence().getLicenceID());
             ps.setTimestamp(4, order.getPickUpDate());
             ps.setTimestamp(5, order.getDropOffDate());
             ps.setBigDecimal(6, order.getRentCost());
@@ -162,7 +162,7 @@ public class OrderDAOImpl implements OrderDAO {
             ps = cn.prepareStatement(UPDATE_QUERY);
             ps.setInt(1, order.getVehicle().getVehicleID());
             ps.setInt(2, order.getUser().getUserID());
-            ps.setInt(3, order.getPassport().getPassportID());
+            ps.setInt(3, order.getLicence().getLicenceID());
             ps.setTimestamp(4, order.getPickUpDate());
             ps.setTimestamp(5, order.getDropOffDate());
             ps.setBigDecimal(6, order.getRentCost());
@@ -217,8 +217,8 @@ public class OrderDAOImpl implements OrderDAO {
                 Vehicle vehicle = VEHICLE_DAO.findByID(vehicleID);
                 int userID = rs.getInt(3);
                 User user = USER_DAO.findByID(userID);
-                int passportID = rs.getInt(4);
-                Passport passport = PASSPORT_DAO.findByID(passportID);
+                int licenceID = rs.getInt(4);
+                Licence licence = LICENCE_DAO.findByID(licenceID);
                 Timestamp pickUpDate = rs.getTimestamp(5);
                 Timestamp dropOffDate = rs.getTimestamp(6);
                 BigDecimal rentCost = rs.getBigDecimal(7);
@@ -232,7 +232,7 @@ public class OrderDAOImpl implements OrderDAO {
                 BigDecimal damageCost = rs.getBigDecimal(15);
                 boolean paid = rs.getBoolean(16);
                 Order orderObj = new Order(orderID, vehicle, user,
-                        passport, pickUpDate, dropOffDate, rentCost,
+                		licence, pickUpDate, dropOffDate, rentCost,
                         processed, rejected, rejectDesc, picked, returned,
                         damaged, damageDesc, damageCost, paid);
                 list.add(orderObj);
@@ -261,7 +261,7 @@ public class OrderDAOImpl implements OrderDAO {
             int userID = rs.getInt(3);
             User user = USER_DAO.findByID(userID);
             int passportID = rs.getInt(4);
-            Passport passport = PASSPORT_DAO.findByID(passportID);
+            Licence licence = LICENCE_DAO.findByID(passportID);
             Timestamp pickUpDate = rs.getTimestamp(5);
             Timestamp dropOffDate = rs.getTimestamp(6);
             BigDecimal rentCost = rs.getBigDecimal(7);
@@ -275,7 +275,7 @@ public class OrderDAOImpl implements OrderDAO {
             BigDecimal damageCost = rs.getBigDecimal(15);
             boolean paid = rs.getBoolean(16);
             orderObj = new Order(orderID, vehicle, user,
-                    passport, pickUpDate, dropOffDate, rentCost,
+                    licence, pickUpDate, dropOffDate, rentCost,
                     processed, rejected, rejectDesc, picked, returned,
                     damaged, damageDesc, damageCost, paid);
             Lgr.LOGGER.info("Data selected successfully");

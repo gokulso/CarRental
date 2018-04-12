@@ -33,6 +33,7 @@ public interface Command {
     String PASSWORD_CONFIRMATION_ERROR_MESSAGE = "PASSWORD_CONFIRMATION_ERROR_MESSAGE";
     String USER_EXISTS_ERROR_MESSAGE = "USER_EXISTS_ERROR_MESSAGE";
     String UNKNOWN_ERROR_MESSAGE = "UNKNOWN_ERROR_MESSAGE";
+    String REQ_PARAM_INVALID_DATE ="InvalidDate";
 
     String REQ_PARAM_LOGIN = "login";
     String REQ_PARAM_PASSWORD = "password";
@@ -52,14 +53,17 @@ public interface Command {
     String REQ_PARAM_REJECT_DESC = "rejectDesc";
     String REQ_PARAM_DAMAGE_DESC = "damageDesc";
     String REQ_PARAM_DAMAGE_COST = "damageCost";
+    
 
     String REQ_PARAM_LAST_NAME = "lastName";
     String REQ_PARAM_FIRST_NAME = "firstName";
     String REQ_PARAM_PATRONYMIC = "patronymic";
+    String REQ_PARAM_PHONE_NUMBER = "phoneNumber";
     String REQ_PARAM_BIRTHDAY = "birthday";
     String REQ_PARAM_P_SERIES = "pSeries";
     String REQ_PARAM_P_NUMBER = "pNumber";
     String REQ_PARAM_WHO_ISSUED = "whoIssued";
+    String REQ_PARAM_ADDRESS = "address";
     String REQ_PARAM_WHEN_ISSUED = "whenIssued";
 
     public String execute(HttpServletRequest req, HttpServletResponse res,

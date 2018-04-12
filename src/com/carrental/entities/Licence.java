@@ -18,41 +18,45 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author Florin
  */
-public class Passport implements Serializable {
+public class Licence implements Serializable {
 
-    private int passportID;
+    private int licenceID;
     private String lastName;
     private String firstName;
     private String patronymic;
+    private String phoneNmber;
     private Date birthday;
-    private String pSeries;
-    private String pNumber;
+    private String lSeries;
+    private String lNumber;
     private String whoIssued;
+    private String address;
     private Date whenIssued;
 
-    public Passport() {
+    public Licence() {
     }
 
-    public Passport(int passportID, String lastName, String firstName,
-            String patronymic, Date birthday, String pSeries,
-            String pNumber, String whoIssued, Date whenIssued) {
-        this.passportID = passportID;
+    public Licence(int passportID, String lastName, String firstName,
+            String patronymic, String phoneNmber, Date birthday, String pSeries,
+            String pNumber, String whoIssued,String address, Date whenIssued) {
+        this.licenceID = passportID;
         this.lastName = lastName;
         this.firstName = firstName;
         this.patronymic = patronymic;
+        this.phoneNmber = phoneNmber;
         this.birthday = birthday;
-        this.pSeries = pSeries;
-        this.pNumber = pNumber;
+        this.lSeries = pSeries;
+        this.lNumber = pNumber;
         this.whoIssued = whoIssued;
+        this.address = address;
         this.whenIssued = whenIssued;
     }
 
-    public int getPassportID() {
-        return passportID;
+    public int getLicenceID() {
+        return licenceID;
     }
 
-    public void setPassportID(int passportID) {
-        this.passportID = passportID;
+    public void setLicenceID(int passportID) {
+        this.licenceID = passportID;
     }
 
     public String getLastName() {
@@ -78,8 +82,18 @@ public class Passport implements Serializable {
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
     }
+    
+    
 
-    public Date getBirthday() {
+    public String getPhoneNmber() {
+		return phoneNmber;
+	}
+
+	public void setPhoneNmber(String phoneNmber) {
+		this.phoneNmber = phoneNmber;
+	}
+
+	public Date getBirthday() {
         return birthday;
     }
 
@@ -87,20 +101,20 @@ public class Passport implements Serializable {
         this.birthday = birthday;
     }
 
-    public String getpSeries() {
-        return pSeries;
+    public String getlSeries() {
+        return lSeries;
     }
 
-    public void setpSeries(String pSeries) {
-        this.pSeries = pSeries;
+    public void setlSeries(String pSeries) {
+        this.lSeries = pSeries;
     }
 
-    public String getpNumber() {
-        return pNumber;
+    public String getlNumber() {
+        return lNumber;
     }
 
-    public void setpNumber(String pNumber) {
-        this.pNumber = pNumber;
+    public void setlNumber(String pNumber) {
+        this.lNumber = pNumber;
     }
 
     public String getWhoIssued() {
@@ -114,8 +128,17 @@ public class Passport implements Serializable {
     public Date getWhenIssued() {
         return whenIssued;
     }
+    
 
-    public void setWhenIssued(Date whenIssued) {
+    public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setWhenIssued(Date whenIssued) {
         this.whenIssued = whenIssued;
     }
 
@@ -131,23 +154,26 @@ public class Passport implements Serializable {
         if (patronymic != null) {
             sb.append(patronymic).append("\n");
         }
+        sb.append(phoneNmber).append("\n");
         sb.append(birthday).append("\n");
-        sb.append(pSeries).append(pNumber).append("\n");
-        sb.append(whoIssued).append(" ").append(whenIssued);
+        sb.append(lSeries).append(lNumber).append("\n");
+        sb.append(whoIssued).append(" ").append(address).append(" ").append(whenIssued);
         return sb.toString();
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-                .append("passportID", passportID)
+                .append("LicenceID", licenceID)
                 .append("lastName", lastName)
                 .append("firstName", firstName)
                 .append("patronymic", patronymic)
+                .append("phoneNmber",phoneNmber)
                 .append("birthday", birthday)
-                .append("pSeries", pSeries)
-                .append("pNumber", pNumber)
+                .append("lSeries", lSeries)
+                .append("lNumber", lNumber)
                 .append("whoIssued", whoIssued)
+                .append("address", address)
                 .append("whenIssued", whenIssued)
                 .toString();
     }
@@ -155,14 +181,16 @@ public class Passport implements Serializable {
     @Override
     public int hashCode() {
         return new HashCodeBuilder()
-                .append(passportID)
+                .append(licenceID)
                 .append(lastName)
                 .append(firstName)
                 .append(patronymic)
+                .append(phoneNmber)
                 .append(birthday)
-                .append(pSeries)
-                .append(pNumber)
+                .append(lSeries)
+                .append(lNumber)
                 .append(whoIssued)
+                .append(address)
                 .append(whenIssued)
                 .toHashCode();
     }
@@ -178,16 +206,18 @@ public class Passport implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Passport other = (Passport) obj;
+        final Licence other = (Licence) obj;
         return new EqualsBuilder()
-                .append(passportID, other.passportID)
+                .append(licenceID, other.licenceID)
                 .append(lastName, other.lastName)
                 .append(firstName, other.firstName)
                 .append(patronymic, other.patronymic)
+                .append(phoneNmber,other.phoneNmber)
                 .append(birthday, other.birthday)
-                .append(pSeries, other.pSeries)
-                .append(pNumber, other.pNumber)
+                .append(lSeries, other.lSeries)
+                .append(lNumber, other.lNumber)
                 .append(whoIssued, other.whoIssued)
+                .append(address,other.address)
                 .append(whenIssued, other.whenIssued)
                 .isEquals();
     }
