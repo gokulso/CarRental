@@ -41,6 +41,7 @@ public interface Command {
 
     String REQ_PARAM_VEHICLE_LIST = "vehicleList";
     String REQ_PARAM_ORDER_LIST = "orderList";
+    String REQ_PARAM_ORDER_HISRORY = "orderHistory";
 
     String REQ_PARAM_VEHICLE_CHOICE = "vehicleChoice";
     String REQ_PARAM_ORDER_CHOICE = "orderChoice";

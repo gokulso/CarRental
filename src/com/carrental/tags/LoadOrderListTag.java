@@ -36,8 +36,8 @@ public class LoadOrderListTag extends TagSupport {
     @Override
     public int doStartTag() throws JspException {
         OrderDAO orderDAO = DAOFactory.getOrderDAO();
-        List<Order> orders = orderDAO.findAll();
-        pageContext.setAttribute(Command.REQ_PARAM_ORDER_LIST, orders);
+        List<Order> ordersHist = orderDAO.findAll();
+        pageContext.setAttribute(Command.REQ_PARAM_ORDER_HISRORY, ordersHist);
         return SKIP_BODY;
     }
 
