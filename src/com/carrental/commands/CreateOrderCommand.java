@@ -64,7 +64,7 @@ public class CreateOrderCommand implements Command {
             licence.setWhenIssued(Date.valueOf(req.getParameter(REQ_PARAM_WHEN_ISSUED)));
             int licenceID = licenceDAO.insert(licence);
             if (licenceID == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
-                throw new IllegalArgumentException("Passport entry in DB was not created");
+                throw new IllegalArgumentException("Licence entry in DB was not created");
             } else {
                 licence.setLicenceID(licenceID);
             }

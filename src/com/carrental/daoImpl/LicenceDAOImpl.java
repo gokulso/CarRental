@@ -63,7 +63,7 @@ public class LicenceDAOImpl implements LicenceDAO {
                 .append(COL_10).append(",")
                 .append(COL_11)
                 .append(") VALUES ")
-                .append("(?,?,?,?,?,?,?,?,?)")
+                .append("(?,?,?,?,?,?,?,?,?,?)")
                 .toString();
 
         UPDATE_QUERY = new StringBuffer()
@@ -142,7 +142,7 @@ public class LicenceDAOImpl implements LicenceDAO {
             ps.setString(8, licence.getWhoIssued());
             ps.setDate(9, licence.getWhenIssued());
             ps.setString(10, licence.getAddress());
-            ps.setInt(10, licence.getLicenceID());
+            ps.setInt(11, licence.getLicenceID());
             result = ps.executeUpdate();
             Lgr.LOGGER.info("Data updated successfully");
         } catch (SQLException e) {
@@ -208,7 +208,7 @@ public class LicenceDAOImpl implements LicenceDAO {
         Licence licenceObj = null;
         try {
             cn = DAOHelper.getConnection();
-            ps = cn.prepareStatement(SELECT_QUERY + " WHERE PASSPORT_ID=?");
+            ps = cn.prepareStatement(SELECT_QUERY + " WHERE LICENCE_ID=?");
             ps.setInt(1, licenceIDParam);
             rs = ps.executeQuery();
             rs.next();

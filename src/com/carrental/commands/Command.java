@@ -60,8 +60,8 @@ public interface Command {
     String REQ_PARAM_PATRONYMIC = "patronymic";
     String REQ_PARAM_PHONE_NUMBER = "phoneNumber";
     String REQ_PARAM_BIRTHDAY = "birthday";
-    String REQ_PARAM_P_SERIES = "pSeries";
-    String REQ_PARAM_P_NUMBER = "pNumber";
+    String REQ_PARAM_P_SERIES = "lSeries";
+    String REQ_PARAM_P_NUMBER = "lNumber";
     String REQ_PARAM_WHO_ISSUED = "whoIssued";
     String REQ_PARAM_ADDRESS = "address";
     String REQ_PARAM_WHEN_ISSUED = "whenIssued";

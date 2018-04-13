@@ -40,7 +40,7 @@ public class OrderDAOImpl implements OrderDAO {
     private final String COL_1 = "ORDER_ID";
     private final String COL_2 = "VEHICLE_ID";
     private final String COL_3 = "USER_ID";
-    private final String COL_4 = "PASSPORT_ID";
+    private final String COL_4 = "LICENCE_ID";
     private final String COL_5 = "PICK_UP_DATE";
     private final String COL_6 = "DROP_OFF_DATE";
     private final String COL_7 = "RENT_COST";
@@ -260,8 +260,8 @@ public class OrderDAOImpl implements OrderDAO {
             Vehicle vehicle = VEHICLE_DAO.findByID(vehicleID);
             int userID = rs.getInt(3);
             User user = USER_DAO.findByID(userID);
-            int passportID = rs.getInt(4);
-            Licence licence = LICENCE_DAO.findByID(passportID);
+            int licenceID = rs.getInt(4);
+            Licence licence = LICENCE_DAO.findByID(licenceID);
             Timestamp pickUpDate = rs.getTimestamp(5);
             Timestamp dropOffDate = rs.getTimestamp(6);
             BigDecimal rentCost = rs.getBigDecimal(7);

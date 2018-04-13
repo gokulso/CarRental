@@ -185,7 +185,7 @@
                                                     <th><fmt:message key="table.order.choice" /></th>
                                                     <th><fmt:message key="table.order.vehicle" /></th>
                                                     <th><fmt:message key="table.order.user" /></th>
-                                                    <th><fmt:message key="table.order.passport" /></th>		
+                                                    <th><fmt:message key="table.order.licence" /></th>		
                                                     <th><fmt:message key="table.order.pickUp" /></th>
                                                     <th><fmt:message key="table.order.dropOff" /></th>
                                                     <th><fmt:message key="table.order.rentCost" /></th>
@@ -207,7 +207,7 @@
                                                             <td><input type="radio" name="orderChoice" value="${order.orderID}" checked="" /></td>
                                                             <td><c:out value="${order.vehicle.getDescription()}" /></td>
                                                             <td><c:out value="${order.user.login}" /></td>
-                                                            <td><c:out value="${order.passport.getDescription()}" /></td>
+                                                            <td><c:out value="${order.licence.getDescription()}" /></td>
                                                             <td><c:out value="${order.pickUpDate}" /></td>
                                                             <td><c:out value="${order.dropOffDate}" /></td>
                                                             <td><c:out value="${order.rentCost}" /></td>
@@ -270,7 +270,7 @@
                                                         <td><input type="radio" name="orderChoice" value="${orderList[requestScope.orderID-1].orderID}" checked="" /></td>
                                                         <td><c:out value="${orderList[requestScope.orderID-1].vehicle.getDescription()}" /></td>
                                                         <td><c:out value="${orderList[requestScope.orderID-1].user.login}" /></td>
-                                                        <td><c:out value="${orderList[requestScope.orderID-1].passport.getDescription()}" /></td>
+                                                        <td><c:out value="${orderList[requestScope.orderID-1].licence.getDescription()}" /></td>
                                                         <td><c:out value="${orderList[requestScope.orderID-1].pickUpDate}" /></td>
                                                         <td><c:out value="${orderList[requestScope.orderID-1].dropOffDate}" /></td>
                                                         <td><c:out value="${orderList[requestScope.orderID-1].rentCost}" /></td>

@@ -324,7 +324,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <fmt:message key="order.label.phoneNumber" var="phoneNumber" />
-                                                <input type="text" class="form-control" name="phoneNumber" placeholder="${phoneNumber}">
+                                                <input type="text" class="form-control" name="phoneNumber" placeholder="${phoneNumber}" required="">
                                             </div>
                                             <label><fmt:message key="order.label.birthday" /></label>
                                             <div class="form-group">
